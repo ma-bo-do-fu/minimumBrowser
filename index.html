@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/photon.css">
+  <script src="./js/main.js"></script>
+  <title>Hello Electron!</title>
+</head>
+
+<body>
+  <div class="window">
+    <header class="toolbar toolbar-header">
+      <h1 class="title">Hello Electron!</h1>
+      <div class="toolbar-actions">
+        <button id="reload" class="btn btn-default">
+          <span class="icon icon-arrows-ccw icon-text"></span> Reload
+        </button>
+        <button id="back" class="btn btn-default">
+          <span class="icon icon-left icon-text"></span> Back
+        </button>
+        <button id="forward" class="btn btn-default">
+          <span class="icon icon-right icon-text"></span> Forward
+        </button>
+        <input type="text" id="urlbar" class="form-control" placeholder="URL" value="https:github.com">
+        <button id="favorite" class="btn btn-default">
+          <span class="icon icon-star icon-text"></span> Favorite
+        </button>
+      </div>
+    </header>
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane-sm sidebar">
+          <ul id="fav-list" class="list-group">
+          </ul>
+        </div>
+        <webview class="pane" id="webview" src="https;//www.github.com/" autosize "on" style="height:100%;"></webview>
+      </div>
+    </div>
+    <footer class="toolbar toolbar-footer">
+      <h1 class="title">Footer</h1>
+    </footer>
+  </div>
+</body>
+
+</html>

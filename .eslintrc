@@ -1,0 +1,6 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+     "sourceType": "module"
+ }
+}
