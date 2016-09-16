@@ -1,4 +1,4 @@
-document.addEventlistener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const webview = document.getElementById('webview');
   const reloadButton = document.getElementById('reload');
   const backButton = document.getElementById('back');
@@ -8,36 +8,36 @@ document.addEventlistener('DOMContentLoaded', () => {
   const favList = document.getElementById('fav-list');
 
   // webview表示の時にurlbarの値を変える
-  webview.addEventlistener('load-commit', ({ url, isMainFrame }) => {
+  webview.addEventListener('load-commit', ({ url, isMainFrame }) => {
     if (isMainFrame) {
       urlbar.value = url;
     }
   });
 
   // urlbarでEnterキーを押したら遷移する
-  urlbar.addEventlistener('keypress', (e) => {
+  urlbar.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       webview.setAttribute('src', urlbar.value);
     }
   });
 
   // 更新ボタンを押したらwebviewをリロードする
-  reloadButton.addEventlistener('click', () => {
+  reloadButton.addEventListener('click', () => {
     webview.reload();
   });
 
   // 戻るボタンをクリックしたらwebviewを戻る
-  backButton.addEventlistener('click', () => {
+  backButton.addEventListener('click', () => {
     webview.goBack();
   });
 
   // 進むボタンをクリックしたらwebviewを戻る
-  backButton.addEventlistener('click', () => {
+  forwardButton.addEventListener('click', () => {
     webview.goForward();
   });
 
   // お気に入りボタンをタップしたらリストにURLを追加する
-  favoriteButton.addEventlistener('click', () => {
+  favoriteButton.addEventListener('click', () => {
     const listItem = document.createElement('li');
     const listContent = document.createElement('p');
     listItem.setAttribute('class', "list-group-item");
@@ -45,7 +45,7 @@ document.addEventlistener('DOMContentLoaded', () => {
     listContent.textContent = urlbar.value;
     listItem.appendChild(listContent);
     favList.appendChild(listItem);
-    listItem.addEventlistener('click', () => {
+    listItem.addEventListener('click', () => {
       const url = listItem.getAttribute('data-url');
       webview.setAttribute('src', url);
     });
